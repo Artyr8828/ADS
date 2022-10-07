@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "467669540737",
+    "project_id": "adskotlin",
+    "storage_bucket": "adskotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467669540737:android:b74ca8e47db69b41461280",
+        "android_client_info": {
+          "package_name": "com.ads.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467669540737-e676s44lb2qckbhdebh42o3694mvn7ev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuML_Jx26NfmnHbrJfUDJ6gRAPoVX_fp4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467669540737-e676s44lb2qckbhdebh42o3694mvn7ev.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
