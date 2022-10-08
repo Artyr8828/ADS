@@ -11,10 +11,13 @@ import com.ads.myapplication.databinding.ActivityMainBinding
 import com.ads.myapplication.dialoghelper.DialogConst
 import com.ads.myapplication.dialoghelper.DialogHelper
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var rootElement:ActivityMainBinding
     private val dialogHelper = DialogHelper(this)
+
+    val mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -3,10 +3,12 @@ package com.ads.myapplication.dialoghelper
 import android.app.AlertDialog
 import com.ads.myapplication.MainActivity
 import com.ads.myapplication.R
+import com.ads.myapplication.accounthelper.AccountHelper
 import com.ads.myapplication.databinding.SignDialogBinding
 
 class DialogHelper(act: MainActivity) {
   private val activity = act
+  private val accHelper = AccountHelper(activity)
 
   fun createSignDialog(index:Int) {
     val builder = AlertDialog.Builder(activity)
@@ -19,6 +21,17 @@ class DialogHelper(act: MainActivity) {
     } else {
       rootDialogElement.tvSingTitle.text = activity.resources.getString(R.string.ad_sign_in)
       rootDialogElement.btSignUpIn.text = activity.resources.getString(R.string.sign_in_action)
+    }
+
+    rootDialogElement.btSignUpIn.setOnClickListener {
+      if (index == DialogConst.SIGN_UP_STATE) {
+        accHelper.signUpWithEmail(
+          rootDialogElement.edSignEmail.text.toString(),
+          rootDialogElement.edSignPassword.text.toString()
+        )
+      } else {
+
+      }
     }
 
     builder.setView(view)
