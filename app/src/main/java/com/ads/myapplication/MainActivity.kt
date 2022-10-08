@@ -7,25 +7,32 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import com.ads.myapplication.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.main_content.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private lateinit var rootElement:ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        rootElement = ActivityMainBinding.inflate(layoutInflater)
+
+        val view = rootElement.root
+
+        setContentView(view)
         init()
     }
 
     private fun init() {
-        val toggle = ActionBarDrawerToggle(this, dwLayout, toolbar, R.string.open, R.string.close)
+        val toggle = ActionBarDrawerToggle(this, rootElement.dwLayout, rootElement.mainContent.toolbar, R.string.open, R.string.close)
 
-        dwLayout.addDrawerListener(toggle)
+        rootElement.dwLayout.addDrawerListener(toggle)
 
         toggle.syncState()
 
-        navView.setNavigationItemSelectedListener(this)
+        rootElement.navView.setNavigationItemSelectedListener(this)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -56,7 +63,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         }
 
-        dwLayout.closeDrawer(GravityCompat.START)
+        rootElement.dwLayout.closeDrawer(GravityCompat.START)
 
         return true
     }
