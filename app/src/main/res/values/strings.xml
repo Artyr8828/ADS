@@ -18,6 +18,8 @@
     <string name="not_reg">Войдите или зарегестрируйтесь</string>
 
     <!-- Sign Dialog -->
+    <string name="email_reset_password_was_send">Reset Email was send!</string>
+    <string name="dialog_reset_email_message">Для восстановления пароля укажите Email адрес</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="sign_in_action">Войти</string>
