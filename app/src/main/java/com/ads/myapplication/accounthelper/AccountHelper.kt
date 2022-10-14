@@ -3,10 +3,15 @@ package com.ads.myapplication.accounthelper
 import android.widget.Toast
 import com.ads.myapplication.MainActivity
 import com.ads.myapplication.R
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseUser
 
 class AccountHelper(activity: MainActivity) {
   private val act= activity
+  private lateinit var signInClient: GoogleSignInClient
+  val signInRequestCode = 132
 
   fun signUpWithEmail(email:String, password:String) {
     if(email.isNotEmpty() && password.isNotEmpty()) {
@@ -48,4 +53,36 @@ class AccountHelper(activity: MainActivity) {
       }
     }
   }
+  // Авторизация по гугл аккаунту === НАЧАЛО ===
+//  private fun getSignInClient():GoogleSignInClient {
+//    // ключ взял из файла google-services.json, параметр client_id
+//    val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//      .requestIdToken("467669540737-e676s44lb2qckbhdebh42o3694mvn7ev.apps.googleusercontent.com")
+//      .build()
+//
+//    return GoogleSignIn.getClient(act, gso)
+//  }
+//  fun signInWithGoogle() {
+//    signInClient = getSignInClient()
+//
+//    val intent = signInClient.signInIntent
+//
+//    act.startActivityForResult(intent, signInRequestCode)
+//  }
+  // Авторизация по гугл аккаунту === КОНЕЦ ===
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

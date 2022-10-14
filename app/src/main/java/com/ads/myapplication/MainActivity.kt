@@ -1,5 +1,6 @@
 package com.ads.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
@@ -32,6 +33,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(view)
         init()
     }
+
+//    override fun onActivityResultCode(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//    }
 
     private fun init() {
         val toggle = ActionBarDrawerToggle(this, rootElement.dwLayout, rootElement.mainContent.toolbar, R.string.open, R.string.close)
