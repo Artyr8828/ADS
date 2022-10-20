@@ -4,11 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import com.ads.myapplication.act.EditAdsAct
 import com.ads.myapplication.databinding.ActivityMainBinding
 import com.ads.myapplication.dialoghelper.DialogConst
 import com.ads.myapplication.dialoghelper.DialogHelper
@@ -34,11 +36,29 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         init()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.id_new_ads) {
+            val i = Intent(this, EditAdsAct::class.java)
+
+            startActivity(i)
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
 //    override fun onActivityResultCode(requestCode: Int, resultCode: Int, data: Intent?) {
 //        super.onActivityResult(requestCode, resultCode, data)
 //    }
 
     private fun init() {
+        setSupportActionBar(rootElement.mainContent.toolbar)
+
         val toggle = ActionBarDrawerToggle(this, rootElement.dwLayout, rootElement.mainContent.toolbar, R.string.open, R.string.close)
 
         rootElement.dwLayout.addDrawerListener(toggle)
