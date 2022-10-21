@@ -2,8 +2,10 @@ package com.ads.myapplication.act
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import com.ads.myapplication.R
 import com.ads.myapplication.databinding.ActivityEditAdsBinding
+import com.ads.myapplication.utils.CityHelper
 
 class EditAdsAct : AppCompatActivity() {
   private lateinit var rootElement: ActivityEditAdsBinding
@@ -14,5 +16,15 @@ class EditAdsAct : AppCompatActivity() {
     rootElement = ActivityEditAdsBinding.inflate(layoutInflater)
 
     setContentView(rootElement.root)
+
+    val adapter = ArrayAdapter(
+      this,
+      android.R.layout.simple_spinner_item,
+      CityHelper.getAllCountries(this)
+    )
+
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+    rootElement.spCountry.adapter = adapter
   }
 }
