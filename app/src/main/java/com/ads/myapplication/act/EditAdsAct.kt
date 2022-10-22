@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import com.ads.myapplication.R
 import com.ads.myapplication.databinding.ActivityEditAdsBinding
+import com.ads.myapplication.dialogs.DialogSpinnerHelper
 import com.ads.myapplication.utils.CityHelper
 
 class EditAdsAct : AppCompatActivity() {
@@ -17,14 +18,10 @@ class EditAdsAct : AppCompatActivity() {
 
     setContentView(rootElement.root)
 
-    val adapter = ArrayAdapter(
-      this,
-      android.R.layout.simple_spinner_item,
-      CityHelper.getAllCountries(this)
-    )
+    val listCountry =  CityHelper.getAllCountries(this)
+    val dialog = DialogSpinnerHelper()
 
-    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+    dialog.showSpinnerDialog(this, listCountry)
 
-    rootElement.spCountry.adapter = adapter
   }
 }

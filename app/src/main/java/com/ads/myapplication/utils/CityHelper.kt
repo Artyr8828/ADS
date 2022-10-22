@@ -32,4 +32,26 @@ object CityHelper {
 
     return tempArray
   }
+
+  fun filterListData(list: ArrayList<String>, searchText: String?): ArrayList<String> {
+    val tempList = ArrayList<String>()
+
+    tempList.clear()
+
+    if (searchText == null) {
+      tempList.add("No result")
+
+      return tempList
+    }
+
+    for (selection: String in list) {
+      if (selection.lowercase().startsWith(searchText.lowercase())) {
+        tempList.add(selection)
+      }
+    }
+
+    if (tempList.size == 0) tempList.add("No result")
+
+    return tempList
+  }
 }
