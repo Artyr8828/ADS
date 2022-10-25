@@ -29,5 +29,8 @@
     <string name="sign_in_error">Не удалось войти</string>
     <string name="send_verif_email_error">Не удалось отправить Email!</string>
     <string name="send_verif_email_done">На вашу почту была отправлена ссылка для подтверждения вашего аккаунта, пожалуйста подтвердите ваш аккаунт!</string>
+    <!-- Edit Activity -->
+    <string name="select_country">*Выберите страну</string>
+    <string name="select_city">Выберите город</string>
 
 </resources>
