@@ -16,13 +16,13 @@ import com.ads.myapplication.act.EditAdsAct
  * если указавыем var, то context будет доступе в классе
  * если не указывает var, то context надо будет обьявить в свойствах(private val cont = context)
  */
-class RcViewDgSpinnerAdapter(var context: Context, var dialog:AlertDialog): RecyclerView.Adapter<RcViewDgSpinnerAdapter.SpViewHolder>() {
+class RcViewDgSpinnerAdapter(var tvSelection: TextView, var dialog:AlertDialog): RecyclerView.Adapter<RcViewDgSpinnerAdapter.SpViewHolder>() {
   private val mainList = ArrayList<String>()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpViewHolder {
     val view = LayoutInflater.from(parent.context).inflate(R.layout.sp_list_item, parent, false)
 
-    return SpViewHolder(view, context, dialog)
+    return SpViewHolder(view, tvSelection, dialog)
   }
 
   override fun onBindViewHolder(holder: SpViewHolder, position: Int) {
@@ -33,7 +33,7 @@ class RcViewDgSpinnerAdapter(var context: Context, var dialog:AlertDialog): Recy
     return mainList.size
   }
 
-  class SpViewHolder(itemView: View, var context: Context, var dialog: AlertDialog, ): RecyclerView.ViewHolder(itemView), View.OnClickListener {
+  class SpViewHolder(itemView: View, var tvSelection: TextView, var dialog: AlertDialog, ): RecyclerView.ViewHolder(itemView), View.OnClickListener {
     private var itemText = ""
 
     fun setData(text: String) {
@@ -48,7 +48,7 @@ class RcViewDgSpinnerAdapter(var context: Context, var dialog:AlertDialog): Recy
 
     override fun onClick(v: View?) {
       // Превращаем context в EditAdsAct
-      (context as EditAdsAct).rootElement.tvCountry.text = itemText
+      tvSelection.text = itemText
       dialog.dismiss()
     }
   }
